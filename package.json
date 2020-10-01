@@ -1,0 +1,16 @@
+{
+  "name": "node-workspace",
+  "version": "1.0.0",
+  "description": "my first server",
+  "main": "first.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vanshika",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "save": "^2.4.0"
+  }
+}
