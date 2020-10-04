@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CONTACT LIST</title>
 </head>
 <body>
-    <h1>HELLO! Rendered from EJS View</h1>
+    <h1>Contact List</h1>
+    <div>
+        <ul>
+            <% for (let i of contact_list) { %>
+                <li>
+                    <p><%= i.name %></p>
+                    <p><%= i.phone %></p>
+
+                </li>
+                <% } %>
+        </ul>
+    </div>
+    <form action="/create-contact" method="POST">  
+        <input type="text" name="name" placeholder="Enter name" required>
+        <input type="number" name="phone" placeholder="Enter phone" required>
+        <button type="submit">Add Contact</button>
+    </form>
 </body>
 </html>
