@@ -7,25 +7,26 @@ app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 app.use(express.urlencoded());
 //middleware
-app.use(function(req,res,next){
-    console.log('middleware called')
-    next();
-})
+app.use(express.static('assets'));
+// app.use(function(req,res,next){
+//     console.log('middleware called')
+//     next();
+// })
 
-var contactList=[
-    {
-        name:"Vanshika",
-        phone:"9999999999"
-    },
-    {
-        name:"Bhavya",
-        phone:"9898989898"
-    },
-    {
-        name:"Mentor",
-        phone:"123456789"
-    }
-]
+// var contactList=[
+//     {
+//         name:"Vanshika",
+//         phone:"9999999999"
+//     },
+//     {
+//         name:"Bhavya",
+//         phone:"9898989898"
+//     },
+//     {
+//         name:"Mentor",
+//         phone:"123456789"
+//     }
+// ]
 
 app.get('/',function(req,res){
     return res.render('home',{
