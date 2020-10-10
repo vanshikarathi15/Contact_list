@@ -1,0 +1,56 @@
+body{
+    margin:0;
+
+}
+#heading{
+    font-family: sans-serif;
+    text-align: center;
+    margin-top:30px;
+    color:gray;
+}
+.contact{
+    background-color: mediumaquamarine;
+    border-bottom: 2.5px solid white;
+
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    color: mintcream;
+
+
+}
+.contact>.flex{
+    width: 90%;
+}
+.contact:hover{
+    background-color: lightcoral;
+    color:blueviolet;
+}
+#lst{
+    list-style: none;
+    font-size: 1.75rem;
+    margin-right: 500px;
+    margin-left: 500px;
+}
+#new{
+    text-align: center;
+}
+/* #name{
+    color: mintcream;
+}
+#phone{
+    color: mintcream;
+} */
+#submit{
+    text-align: center;
+}
+#button{
+    background-color:grey;
+    color: darkblue;
+    font-size: 1rem;
+}
+#button:hover{
+    background-color: indigo;
+    color:white;
+}
