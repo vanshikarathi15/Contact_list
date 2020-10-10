@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 const contactSchema=new mongoose.Schema({
+    //schema ..however we can update it anytime 
     name: {
         type:String,
         required:true

@@ -16,25 +16,32 @@ app.use(express.static('assets'));
 //     next();
 // })
 
-// var contactList=[
-//     {
-//         name:"Vanshika",
-//         phone:"9999999999"
-//     },
-//     {
-//         name:"Bhavya",
-//         phone:"9898989898"
-//     },
-//     {
-//         name:"Mentor",
-//         phone:"123456789"
-//     }
-// ]
+var contactList=[
+    {
+        name:"Vanshika",
+        phone:"9999999999"
+    },
+    {
+        name:"Bhavya",
+        phone:"9898989898"
+    },
+    {
+        name:"Mentor",
+        phone:"123456789"
+    }
+]
 
 app.get('/',function(req,res){
+    Contact.find({},function(err,contacts){
+        if (err){
+            console.log('error in fetching contacts from db');
+            return ;
+        }
+    
+    })
     return res.render('home',{
         title:"My Contacts List",
-        contact_list:contactList
+        contact_list:Contact
     });
 });
 
@@ -43,8 +50,19 @@ app.post("/create-contact" ,function(req,res){
     //         name:req.body.name,
     //         phone:req.body.phone
     //     });
-    return res.redirect('/');
-})
+    Contact.create({
+        name :req.body.name,
+        phone:req.body.phone
+    },function(err,newContact){
+        if(err){
+            console.log('error in creating a new contact!');
+            return ;
+
+        }
+        console.log('*******',newContact);
+        return res.redirect('back');
+    });
+    });
 app.get('/delete-contact/',function(req,res){
     let phone=req.query.phone;
     let contactIndex=contactList.findIndex(contact => contact.phone==phone);
@@ -59,3 +77,6 @@ app.listen(port,function(err){
     }
     console.log('Server has been created at: ', port);
 });
+
+//ye 3 terminal the
+// plz resolev ok si r ty
