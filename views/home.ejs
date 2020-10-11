@@ -11,17 +11,17 @@
     <h1 id="heading"><i class="far fa-address-book"></i> Contact List</h1>
     <div>
         <ul id="lst">
-            <% for (let i of contact_list) { %>
+            <% for (let i of contacts) { %>
                 
                 <li class="contact">
                     <div class="flex">
-                        <%= i.name %>
-                        <%= i.phone %>
+                        <div><%= i.name %></div>
+                        <div><%= i.phone %></div>
                     </div>
                     
                 <div class="delete-button">
-                    <a href="/delete-contact/?phone=<%= i.phone %>"&name=<%= i.name%>">
-                        <i class="fas fa-window-close"></i>
+                    <a href="/delete-contact/?id=<%= i.id %>"&name=<%= i.name%>">
+                       <i class="fas fa-window-close"></i>
                     </a>
                 </div>
                 </li>
@@ -30,8 +30,8 @@
         </ul>
     </div>
     <form id="submit"action="/create-contact" method="POST" >  
-        <input type="text" name="name" placeholder="Enter name" required>
-        <input type="number" name="phone" placeholder="Enter phone" required>
+        <input id="input" type="text" name="name" placeholder="Enter name" required>
+        <input id="input" type="number" name="phone" placeholder="Enter phone" required>
         <button id="button" type="submit">Add Contact</button>
     </form>
     <script type="text/javascript" src="/js/home.js">

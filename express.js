@@ -37,12 +37,12 @@ app.get('/',function(req,res){
             console.log('error in fetching contacts from db');
             return ;
         }
-    
+        return res.render('home',{
+            title:"My Contacts List",
+            contacts:contacts
+        });
     })
-    return res.render('home',{
-        title:"My Contacts List",
-        contact_list:Contact
-    });
+  
 });
 
 app.post("/create-contact" ,function(req,res){
@@ -64,12 +64,22 @@ app.post("/create-contact" ,function(req,res){
     });
     });
 app.get('/delete-contact/',function(req,res){
-    let phone=req.query.phone;
-    let contactIndex=contactList.findIndex(contact => contact.phone==phone);
-    if (contactIndex!=-1){
-        contactList.splice(contactIndex,1);
-    }
-    return res.redirect('back');
+    //get id from the query in url
+    let id=req.query.id;
+    //find contact in the database using id and delete
+    Contact.findByIdAndDelete(id,function(err){
+        if (err){
+            console.log('Error in deleting the object from database');
+            return;
+        }
+        return res.redirect('back');
+    });
+
+    // let contactIndex=contactList.findIndex(contact => contact.phone==phone);
+    // if (contactIndex!=-1){
+    //     contactList.splice(contactIndex,1);
+    // }
+    
 });
 app.listen(port,function(err){
     if (err){
@@ -78,5 +88,3 @@ app.listen(port,function(err){
     console.log('Server has been created at: ', port);
 });
 
-//ye 3 terminal the
-// plz resolev ok si r ty
